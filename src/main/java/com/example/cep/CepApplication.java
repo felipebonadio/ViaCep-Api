@@ -15,10 +15,9 @@ public class CepApplication {
   @Bean
   public CommandLineRunner demo(CepRepository repository) {
     return (args) -> {     
-      repository.save(new Cep("Barra Bonita" , "17340000"));
-      repository.save(new Cep("Igaraçu" , "17340170"));
-      repository.save(new Cep("Avaré" , "17340190"));
+      repository.save(new Cep("Barra Bonita" , "17340170", "Emilio Bressan", "Vila Operaria", "SP"));
+      repository.save(new Cep("Chapecó" , "89802217", "Carlos Chagas", "Centro", "SC"));
+      repository.save(new Cep("Avare" , "18701220", "Mato Grosso", "Braz II", "SP" ));
     };
   }
-
 }

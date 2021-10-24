@@ -17,12 +17,13 @@ public class CepService implements CepRepository {
 		Cep cep = null;
 		cep = cepRepository.findById(id);
 		return cep;
-	}
-	
+	}	
+
 	@Override
-	public List<Cep> findByCidade(String cidade) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Cep> findAll() {
+		List<Cep> cep = null;
+		cep = cepRepository.findAll();
+		return cep;
 	}
 
 	@Override
@@ -49,12 +50,7 @@ public class CepService implements CepRepository {
 		return false;
 	}
 
-	@Override
-	public List<Cep> findAll() {
-		List<Cep> cep = null;
-		cep = cepRepository.findAll();
-		return cep;
-	}
+	
 
 	@Override
 	public Iterable<Cep> findAllById(Iterable<Long> ids) {

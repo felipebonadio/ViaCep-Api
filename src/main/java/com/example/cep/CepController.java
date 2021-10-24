@@ -18,7 +18,7 @@ public class CepController {
 	private CepRepository cepRepository;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-	public Cep findId(@PathVariable("id") Integer id) {
+	public Cep findById(@PathVariable("id") Integer id) {
 		Cep cep = this.cepRepository.findById(id);
 		return cep;
 	}
@@ -28,5 +28,4 @@ public class CepController {
 		List<Cep> cep = this.cepRepository.findAll();
 		return cep;
 	}
-	
 }
