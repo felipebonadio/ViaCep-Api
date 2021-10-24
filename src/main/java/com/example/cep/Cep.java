@@ -26,8 +26,8 @@ public class Cep {
 	@Column(name = "cidade")
 	private String cidade;
 
-	@Column(name = "cep")
-	private String cep;
+	@Column(name = "numeroCep")
+	private String numeroCep;
 
 	@Column(name = "rua")
 	private String rua;
@@ -41,10 +41,10 @@ public class Cep {
 	public Cep() {
 	}
 
-	public Cep(String cidade, String cep, String rua, String bairro, String uf ) {
+	public Cep(String cidade, String numeroCep, String rua, String bairro, String uf ) {
 		super();
 		this.cidade = cidade;
-		this.cep = cep;
+		this.numeroCep = numeroCep;
 		this.rua = rua;
 		this.bairro = bairro;
 		this.uf = uf;
@@ -58,12 +58,12 @@ public class Cep {
 		this.cidade = cidade;
 	}
 
-	public String getCep() {
-		return cep;
+	public String getNumeroCep() {
+		return numeroCep;
 	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
+	public void setNumeroCep(String numeroCep) {
+		this.numeroCep = numeroCep;
 	}
 
 	public String getRua() {
@@ -92,7 +92,7 @@ public class Cep {
 
 	@Override
 	public String toString() {
-		return "Cep [id=" + id + ", cidade=" + cidade + ", cep=" + cep + ", rua=" + rua + ", bairro=" + bairro + ", uf="
+		return "Cep [id=" + id + ", cidade=" + cidade + ", cep=" + numeroCep + ", rua=" + rua + ", bairro=" + bairro + ", uf="
 				+ uf + "]";
 	}	
 

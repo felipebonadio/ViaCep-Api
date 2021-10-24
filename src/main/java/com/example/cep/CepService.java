@@ -18,11 +18,25 @@ public class CepService implements CepRepository {
 		cep = cepRepository.findById(id);
 		return cep;
 	}	
+	
+	@Override
+	public Cep findByNumeroCep(String numeroCep) {
+		Cep cep = null;
+		cep = cepRepository.findByNumeroCep(numeroCep);
+		return cep;
+	}	
 
 	@Override
 	public List<Cep> findAll() {
 		List<Cep> cep = null;
 		cep = cepRepository.findAll();
+		return cep;
+	}
+	
+	@Override
+	public List<Cep> findByCidade(String cidade) {
+		List<Cep> cep = null;
+		cep = cepRepository.findByCidade(cidade);
 		return cep;
 	}
 
