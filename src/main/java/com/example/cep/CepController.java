@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(exposedHeaders = "errors, content-type")
-@RequestMapping("/api")
+
 public class CepController {
 
 	@Autowired
 	private CepRepository cepRepository;
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/id/{id}", method = RequestMethod.GET, produces = "application/json")
 	public Cep findById(@PathVariable("id") Integer id) {
 		Cep cep = this.cepRepository.findById(id);
 		return cep;
@@ -29,13 +29,13 @@ public class CepController {
 		return cep;
 	}
 	
-	@RequestMapping(value = "/cep/{numeroCep}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "{numeroCep}", method = RequestMethod.GET, produces = "application/json")
 	public Cep findByNumeroCep(@PathVariable("numeroCep") String numeroCep) {
 		Cep cep = this.cepRepository.findByNumeroCep(numeroCep);
 		return cep;
 	}
 	
-	@RequestMapping(value = "/cidade/{cidade}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/cidades/{cidade}", method = RequestMethod.GET, produces = "application/json")
 	public List<Cep> findByCidade(@PathVariable("cidade") String cidade) {
 		List<Cep> cep = this.cepRepository.findByCidade(cidade);
 		return cep;

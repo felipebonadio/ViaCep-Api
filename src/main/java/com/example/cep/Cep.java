@@ -1,6 +1,5 @@
 package com.example.cep;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,29 +12,12 @@ public class Cep {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Integer id;	
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	@Column(name = "cidade")
 	private String cidade;
-
-	@Column(name = "numeroCep")
 	private String numeroCep;
-
-	@Column(name = "rua")
 	private String rua;
-	
-	@Column(name = "bairro")
 	private String bairro;
-	
-	@Column(name = "uf")
 	private String uf;
 	
 	public Cep() {
@@ -49,7 +31,15 @@ public class Cep {
 		this.bairro = bairro;
 		this.uf = uf;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	public String getCidade() {
 		return cidade;
 	}
