@@ -9,5 +9,5 @@ public interface CepRepository extends CrudRepository<Cep, Long> {
 	List<Cep> findAll();
 	Cep findById(int id);
 	Cep findByNumeroCep(String numeroCep);
-	List<Cep> findByCidade(String cidade);
+	List<Cep> findByCidade(String cidade);	
 }
