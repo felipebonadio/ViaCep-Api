@@ -49,7 +49,7 @@ public class CepController {
 	}
 	
 	@RequestMapping(value = "/cidades/{cidade}", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<List<Cep>> findByCidade(@PathVariable("cidade") String localidade) {
+	public ResponseEntity<List<Cep>> findByLocalidade(@PathVariable("cidade") String localidade) {
 		List<Cep> cep = this.cepRepository.findByLocalidade(localidade);
 		if (cep.isEmpty()) {
 			return new ResponseEntity<List<Cep>>(cep, HttpStatus.NOT_FOUND);
