@@ -39,18 +39,18 @@ public class CepController {
 		return new ResponseEntity<List<Cep>>(cep, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "{numeroCep}", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<Cep> findByNumeroCep(@PathVariable("numeroCep") String numeroCep) {
-		Cep cep = this.cepRepository.findByNumeroCep(numeroCep);
+	@RequestMapping(value = "/{cep}", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<Cep> findByCep(@PathVariable("cep") String cep) {
+		Cep numeroCep = this.cepRepository.findByCep(cep);
 		if (cep == null) {
-			return new ResponseEntity<Cep>(cep, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<Cep>(numeroCep, HttpStatus.NOT_FOUND);
 		}		
-		return new ResponseEntity<Cep>(cep, HttpStatus.OK);	
+		return new ResponseEntity<Cep>(numeroCep, HttpStatus.OK);	
 	}
 	
 	@RequestMapping(value = "/cidades/{cidade}", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<List<Cep>> findByCidade(@PathVariable("cidade") String cidade) {
-		List<Cep> cep = this.cepRepository.findByCidade(cidade);
+	public ResponseEntity<List<Cep>> findByCidade(@PathVariable("cidade") String localidade) {
+		List<Cep> cep = this.cepRepository.findByLocalidade(localidade);
 		if (cep.isEmpty()) {
 			return new ResponseEntity<List<Cep>>(cep, HttpStatus.NOT_FOUND);
 		}

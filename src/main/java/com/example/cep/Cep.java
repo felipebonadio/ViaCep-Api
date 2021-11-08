@@ -15,11 +15,11 @@ public class Cep {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;	
 	@Column(nullable = false)
-	private String cidade;
+	private String cep;
 	@Column(nullable = false)
-	private String numeroCep;
+	private String localidade;	
 	@Column(nullable = false)
-	private String rua;
+	private String logradouro;
 	@Column(nullable = false)
 	private String bairro;
 	@Column(nullable = false)
@@ -28,11 +28,12 @@ public class Cep {
 	public Cep() {
 	}
 
-	public Cep(String cidade, String numeroCep, String rua, String bairro, String uf ) {
+	
+	public Cep(  String localidade, String cep, String logradouro, String bairro, String uf) {
 		super();
-		this.cidade = cidade;
-		this.numeroCep = numeroCep;
-		this.rua = rua;
+		this.cep = cep;
+		this.localidade = localidade;		
+		this.logradouro = logradouro;
 		this.bairro = bairro;
 		this.uf = uf;
 	}
@@ -41,53 +42,38 @@ public class Cep {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	public String getCidade() {
-		return cidade;
+
+	public String getCep() {
+		return cep;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+
+	public String getLocalidade() {
+		return localidade;
 	}
 
-	public String getNumeroCep() {
-		return numeroCep;
+
+	public String getLogradouro() {
+		return logradouro;
 	}
 
-	public void setNumeroCep(String numeroCep) {
-		this.numeroCep = numeroCep;
-	}
-
-	public String getRua() {
-		return rua;
-	}
-
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
 
 	public String getBairro() {
 		return bairro;
 	}
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
 
 	public String getUf() {
 		return uf;
 	}
 
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
+
+	
+
 
 	@Override
 	public String toString() {
-		return "Cep [id=" + id + ", cidade=" + cidade + ", cep=" + numeroCep + ", rua=" + rua + ", bairro=" + bairro + ", uf="
+		return "Cep [id=" + id + ", cidade=" + localidade + ", cep=" + cep + ", rua=" + logradouro + ", bairro=" + bairro + ", uf="
 				+ uf + "]";
 	}	
 
