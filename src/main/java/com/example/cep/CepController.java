@@ -21,7 +21,7 @@ public class CepController {
 	@Autowired
 	private CepRepository cepRepository;
 
-	@RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/id/{id}", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Cep> findById(@PathVariable("id") Integer id) {
 		Cep cep = this.cepRepository.findById(id);
 		if (cep == null) {
@@ -30,7 +30,7 @@ public class CepController {
 		return new ResponseEntity<Cep>(cep, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<List<Cep>> findAll() {
 		List<Cep> cep = this.cepRepository.findAll();
 		if (cep.isEmpty()) {
@@ -39,7 +39,7 @@ public class CepController {
 		return new ResponseEntity<List<Cep>>(cep, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "{numeroCep}", method = RequestMethod.GET)
+	@RequestMapping(value = "{numeroCep}", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<Cep> findByNumeroCep(@PathVariable("numeroCep") String numeroCep) {
 		Cep cep = this.cepRepository.findByNumeroCep(numeroCep);
 		if (cep == null) {
@@ -48,7 +48,7 @@ public class CepController {
 		return new ResponseEntity<Cep>(cep, HttpStatus.OK);	
 	}
 	
-	@RequestMapping(value = "/cidades/{cidade}", method = RequestMethod.GET)
+	@RequestMapping(value = "/cidades/{cidade}", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<List<Cep>> findByCidade(@PathVariable("cidade") String cidade) {
 		List<Cep> cep = this.cepRepository.findByCidade(cidade);
 		if (cep.isEmpty()) {
@@ -57,7 +57,7 @@ public class CepController {
 		return new ResponseEntity<List<Cep>>(cep, HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<Cep> save(@RequestBody Cep cep, BindingResult bindingResult) {
 		cepRepository.save(cep);
 		if(bindingResult.hasErrors() || (cep == null)){
@@ -66,7 +66,7 @@ public class CepController {
 		return new ResponseEntity<Cep>(cep, HttpStatus.CREATED); 
 	}
 	
-	@RequestMapping(value = "/id/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/id/{id}", method = RequestMethod.DELETE, produces = "application/json")
 	public ResponseEntity<Cep> deleteById(@PathVariable("id") Integer id) {			
 		Cep cepId = this.cepRepository.findById(id);		
 		cepRepository.delete(cepId);	
